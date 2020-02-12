@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+         .col-1 {width: 20.0%;}
+         .col-2 {width: 40.0%;}
+         .col-3 {width: 60.0%;}
+         .col-4 {width: 80.0%;}  
+         .col-5 {width: 100.0%;}
+         [class*="col-"] {
+         float: left;
+         padding: 15px;
+         }
+         .row::after {
+         content: "";
+         clear: both;
+         display: table;
+         } .grid-container {
+         display: inline-grid;
+         grid-column-gap: 50px;
+         grid-gap: 50px 100px;
+         height: 100%; /* Full-height: remove this if you want "auto" height */
+         width: 100px; /* Set the width of the sidebar */
+         position: fixed;
+         z-index: 1; /* Stay on top */
+         top: 0; /* Stay at the top */
+         left: 0;
+         background-color: #a8e031; /* Black */
+         overflow-x: hidden; /* Disable horizontal scroll */
+         padding-top: 20px;
+         }.item1 {
+         grid-column-start: 1;
+         grid-column-end: 1;
+         grid-row-start: 1;
+         grid-row-end: 1;
+         }.item2 {
+         grid-column-start: 1;
+         grid-column-end: 1;
+         grid-row-start: 2;
+         grid-row-end: 2;
+         }.item3 {
+         grid-column-start: 1;
+         grid-column-end: 1;
+         grid-row-start: 3;
+         grid-row-end: 3;
+         }.item4 {
+         grid-column-start: 1;
+         grid-column-end: 1;
+         grid-row-start: 4;
+         grid-row-end: 4;
+         }.item5 {
+         grid-column-start: 1;
+         grid-column-end: 1;
+         grid-row-start: 5;
+         grid-row-end: 5;
+         }
+         .main {
+         margin-left: 160px; /* Same as the width of the sidebar */
+         padding: 0px 10px;
+         }
+
+    </style>
+    <script type="text/javascript">
+           var masterData = {{ data.data_map | safe}}
+    </script>
+    <meta charset="utf-8"/>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <!--<script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/mainpage.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+<body>
+<div style="background-color:#b5dcb3; width:100%;text-align: center">
+    <h1>CSE-564 Assignment 2 FIFA 18 Player Stats</h1>
+</div>
+<div class="grid-container">
+    <div class="item1">
+        <button id="screeButton">SCREE PLOT</button>
+    </div>
+    <div class="item2">
+        <button id="pcaProjButton">PCA PROJECTIONS</button>
+    </div>
+    <div class="item3">
+        <button id="mdsProjButton">MDS PROJECTIONS</button>
+    </div>
+    <div class="item4">
+        <button id="attrProjButton">LOADED PCA ATTRIBUTES</button>
+    </div>
+    <div class="item5">
+        <div id ="dropdown"></div>
+    </div>
+</div>
+<div class="main">
+    <svg width="800" height="450"></svg>
+
+</div>
+<script>
+         main();
+
+</script>
+</body>
+</html>
